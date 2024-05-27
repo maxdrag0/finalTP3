@@ -1,10 +1,11 @@
-package ar.edu.ort.tp3.finaltp3
+package ar.edu.ort.tp3.finaltp3.activities
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import ar.edu.ort.tp3.finaltp3.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
