@@ -14,7 +14,7 @@
         android:backgroundTint="#F5F2F2"
         android:contentDescription="@string/app_name"
         android:visibility="visible"
-        app:srcCompat="@drawable/logoSplash"
+        app:srcCompat="@drawable/splash"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
