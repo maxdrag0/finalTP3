@@ -1,4 +1,4 @@
-package ar.edu.ort.tp3.finaltp3.activities
+package ar.edu.ort.tp3.finaltp3.ui._activities
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
