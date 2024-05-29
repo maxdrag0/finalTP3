@@ -7,11 +7,19 @@
     <fragment
         android:id="@+id/explore"
         android:name="ar.edu.ort.tp3.finaltp3.ui.explore.FragmentExplore"
-        android:label="FragmentExplore" />
+        android:label="FragmentExplore" >
+        <action
+            android:id="@+id/action_explore_to_search"
+            app:destination="@id/search" />
+    </fragment>
     <fragment
         android:id="@+id/search"
         android:name="ar.edu.ort.tp3.finaltp3.ui.search.FragmentSearch"
-        android:label="FragmentSearch" />
+        android:label="FragmentSearch" >
+        <action
+            android:id="@+id/action_search_to_profile"
+            app:destination="@id/profile" />
+    </fragment>
     <fragment
         android:id="@+id/offers"
         android:name="ar.edu.ort.tp3.finaltp3.ui.offers.FragmentOffers"
@@ -19,6 +27,13 @@
     <fragment
         android:id="@+id/profile"
         android:name="ar.edu.ort.tp3.finaltp3.ui.profile.FragmentProfile"
-        android:label="FragmentProfile" />
+        android:label="FragmentProfile" >
+        <action
+            android:id="@+id/action_profile_to_offers"
+            app:destination="@id/offers" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_explore"
+        app:destination="@id/explore" />
 
 </navigation>
