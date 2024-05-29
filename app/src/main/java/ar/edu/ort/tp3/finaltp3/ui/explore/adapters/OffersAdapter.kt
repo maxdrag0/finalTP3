@@ -9,14 +9,24 @@ import androidx.recyclerview.widget.RecyclerView
 import ar.edu.ort.tp3.finaltp3.R
 import ar.edu.ort.tp3.finaltp3.ui.explore.entities.Offer
 
-class OffersAdapter(private val offers: List<Offer>) :
-    RecyclerView.Adapter<OffersAdapter.OfferViewHolder>() {
+class OffersAdapter(
+    private val offers: List<Offer>,
+    private val onOfferClick: (Offer) -> Unit
+) : RecyclerView.Adapter<OffersAdapter.OfferViewHolder>() {
 
     inner class OfferViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val discountTextView: TextView = itemView.findViewById(R.id.offer_discount)
         val cardTypeTextView: TextView = itemView.findViewById(R.id.offer_card_type)
         val descriptionTextView: TextView = itemView.findViewById(R.id.offer_description)
         val imageView: ImageView = itemView.findViewById(R.id.offer_image)
+
+        fun bind(offer: Offer) {
+            discountTextView.text = offer.discount
+            cardTypeTextView.text = offer.cardType
+            descriptionTextView.text = offer.description
+            imageView.setImageResource(offer.imageResource)
+            itemView.setOnClickListener { onOfferClick(offer) }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OfferViewHolder {
@@ -27,10 +37,7 @@ class OffersAdapter(private val offers: List<Offer>) :
 
     override fun onBindViewHolder(holder: OfferViewHolder, position: Int) {
         val offer = offers[position]
-        holder.discountTextView.text = offer.discount
-        holder.cardTypeTextView.text = offer.cardType
-        holder.descriptionTextView.text = offer.description
-        holder.imageView.setImageResource(offer.imageResource)
+        holder.bind(offer)
     }
 
     override fun getItemCount(): Int {

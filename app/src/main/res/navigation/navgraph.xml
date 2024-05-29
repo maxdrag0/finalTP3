@@ -23,7 +23,11 @@
     <fragment
         android:id="@+id/offers"
         android:name="ar.edu.ort.tp3.finaltp3.ui.offers.FragmentOffers"
-        android:label="FragmentOffers" />
+        android:label="FragmentOffers" >
+        <action
+            android:id="@+id/action_offers_to_fragmentExplore"
+            app:destination="@id/fragmentExplore" />
+    </fragment>
     <fragment
         android:id="@+id/profile"
         android:name="ar.edu.ort.tp3.finaltp3.ui.profile.FragmentProfile"
@@ -35,5 +39,18 @@
     <action
         android:id="@+id/action_global_explore"
         app:destination="@id/explore" />
+    <fragment
+        android:id="@+id/fragmentExplore"
+        android:name="ar.edu.ort.tp3.finaltp3.ui.explore.FragmentExplore"
+        android:label="FragmentExplore">
+        <action
+            android:id="@+id/action_explore_to_offers"
+            app:destination="@id/offers" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentOffers"
+        android:name="ar.edu.ort.tp3.finaltp3.ui.offers.FragmentOffers"
+        android:label="FragmentOffers" />
 
 </navigation>
