@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navgraph.xml"
+    app:startDestination="@id/explore">
+
+    <fragment
+        android:id="@+id/explore"
+        android:name="ar.edu.ort.tp3.finaltp3.ui.explore.FragmentExplore"
+        android:label="FragmentExplore" />
+    <fragment
+        android:id="@+id/search"
+        android:name="ar.edu.ort.tp3.finaltp3.ui.search.FragmentSearch"
+        android:label="FragmentSearch" />
+    <fragment
+        android:id="@+id/offers"
+        android:name="ar.edu.ort.tp3.finaltp3.ui.offers.FragmentOffers"
+        android:label="FragmentOffers" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="ar.edu.ort.tp3.finaltp3.ui.profile.FragmentProfile"
+        android:label="FragmentProfile" />
+
+</navigation>

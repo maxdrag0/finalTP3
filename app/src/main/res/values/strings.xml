@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Final TP3</string>
+    <string name="explore_fragment">Explore Fragment</string>
+    <string name="offers_fragment">Offers fragment</string>
+    <string name="profile_fragment">Profile Fragment</string>
+    <string name="search_fragment">Search Fragment</string>
 </resources>
