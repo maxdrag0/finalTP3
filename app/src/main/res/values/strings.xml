@@ -6,4 +6,5 @@
     <string name="search_fragment">Search Fragment</string>
     <string name="settings_fragment">Settings Fragment</string>
     <string name="name">Macy Johnson</string>
+    <string name="imagen_de_perfil">imagen de perfil</string>
 </resources>
