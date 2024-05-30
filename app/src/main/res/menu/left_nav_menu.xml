@@ -7,13 +7,23 @@
         android:title="Profile" />
 
     <item
-        android:id="@+id/offers"
-        android:icon="@drawable/iconoffers"
-        android:title="Offers" />
+        android:id="@+id/notification"
+        android:icon="@drawable/iconmail"
+        android:title="Notification"
+        />
+    <item
+        android:id="@+id/gethelp"
+        android:icon="@drawable/iconmail"
+        android:title="Get Help" />
+    <item
+        android:id="@+id/calendar"
+        android:icon="@drawable/iconcalendar"
+        android:title="Calendar" />
 
     <item
         android:id="@+id/fragmentSettings"
-        android:icon="@drawable/settingsimage"
+        android:icon="@drawable/iconsettings"
         android:title="Settings" />
 
 </menu>
+
