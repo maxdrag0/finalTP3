@@ -1,4 +1,4 @@
-package ar.edu.ort.tp3.finaltp3.ui.explore.adapters
+package ar.edu.ort.tp3.finaltp3.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ar.edu.ort.tp3.finaltp3.R
-import ar.edu.ort.tp3.finaltp3.ui.explore.entities.Destination
+import ar.edu.ort.tp3.finaltp3.entities.Destination
 
 class TrendingDestinationsAdapter(private val destinations: List<Destination>) :
     RecyclerView.Adapter<TrendingDestinationsAdapter.DestinationViewHolder>() {

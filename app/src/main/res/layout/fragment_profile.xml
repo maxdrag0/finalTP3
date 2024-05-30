@@ -23,4 +23,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="75dp"
+        android:layout_height="79dp"
+        android:src="@drawable/profileicon"
+        tools:layout_editor_absoluteX="168dp"
+        tools:layout_editor_absoluteY="261dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

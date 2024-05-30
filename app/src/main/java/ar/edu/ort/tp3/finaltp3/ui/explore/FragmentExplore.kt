@@ -4,15 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ar.edu.ort.tp3.finaltp3.R
-import ar.edu.ort.tp3.finaltp3.ui.explore.adapters.OffersAdapter
-import ar.edu.ort.tp3.finaltp3.ui.explore.adapters.TrendingDestinationsAdapter
-import ar.edu.ort.tp3.finaltp3.ui.explore.entities.Destination
-import ar.edu.ort.tp3.finaltp3.ui.explore.entities.Offer
+import ar.edu.ort.tp3.finaltp3.adapters.OffersAdapter
+import ar.edu.ort.tp3.finaltp3.adapters.TrendingDestinationsAdapter
+import ar.edu.ort.tp3.finaltp3.entities.Destination
+import ar.edu.ort.tp3.finaltp3.entities.Offer
 
 class FragmentExplore : Fragment() {
 
@@ -47,6 +48,11 @@ class FragmentExplore : Fragment() {
         return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // Establecer el título de la actividad en una cadena vacía
+        (activity as? AppCompatActivity)?.supportActionBar?.title = ""
+    }
     private fun getTrendingDestinations(): List<Destination> {
         return listOf(
             Destination("Boracay", "Philippines", "5D4N", R.drawable.boracay_image),

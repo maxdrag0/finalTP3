@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ar.edu.ort.tp3.finaltp3.R
-import ar.edu.ort.tp3.finaltp3.ui.explore.adapters.OffersAdapter
-import ar.edu.ort.tp3.finaltp3.ui.explore.entities.Offer
+import ar.edu.ort.tp3.finaltp3.adapters.OffersAdapter
+import ar.edu.ort.tp3.finaltp3.entities.Offer
 
 class FragmentOffers : Fragment() {
 
@@ -36,5 +37,7 @@ class FragmentOffers : Fragment() {
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = offersAdapter
+
+        (activity as? AppCompatActivity)?.supportActionBar?.title = "Offers"
     }
 }
