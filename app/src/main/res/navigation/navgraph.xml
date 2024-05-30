@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navgraph.xml"
     app:startDestination="@id/explore">
 
@@ -46,11 +47,19 @@
         <action
             android:id="@+id/action_explore_to_offers"
             app:destination="@id/offers" />
+        <action
+            android:id="@+id/action_fragmentExplore_to_fragmentSettings"
+            app:destination="@id/fragmentSettings" />
     </fragment>
 
     <fragment
         android:id="@+id/fragmentOffers"
         android:name="ar.edu.ort.tp3.finaltp3.ui.offers.FragmentOffers"
         android:label="FragmentOffers" />
+    <fragment
+        android:id="@+id/fragmentSettings"
+        android:name="ar.edu.ort.tp3.finaltp3.ui.settings.FragmentSettings"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 
 </navigation>
