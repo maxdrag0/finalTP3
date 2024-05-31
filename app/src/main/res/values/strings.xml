@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Final TP3</string>
+    <string name="app_name">FickleFlight</string>
     <string name="explore_fragment">Explore Fragment</string>
     <string name="offers_fragment">Offers fragment</string>
     <string name="profile_fragment">Profile Fragment</string>
@@ -7,4 +7,18 @@
     <string name="settings_fragment">Settings Fragment</string>
     <string name="name">Macy Johnson</string>
     <string name="imagen_de_perfil">imagen de perfil</string>
+    <string name="select_arrival">Select Arrival</string>
+    <string name="select_departure">Select Departure</string>
+    <string name="offers">Offers</string>
+    <string-array name="passengers_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="class_array">
+        <item>Economy</item>
+        <item>Business</item>
+        <item>First Class</item>
+    </string-array>
 </resources>

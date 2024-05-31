@@ -20,6 +20,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+<!--FORMULARIO-->
             <RadioGroup
                 android:id="@+id/radio_group_trip_type"
                 android:layout_width="match_parent"
@@ -39,24 +40,34 @@
 
             </RadioGroup>
 
-            <Spinner
-                android:id="@+id/spinner_departure"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textSalida"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp" />
+                android:hint="@string/select_departure">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <Spinner
-                android:id="@+id/spinner_arrival"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textLlegada"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp" />
+                android:hint="@string/select_arrival">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <EditText
                 android:id="@+id/edit_text_departure_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="Departure Date" />
+                android:hint="Departure Date"
+                android:focusable="false"
+                android:inputType="date" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -68,7 +79,8 @@
                     android:id="@+id/spinner_passengers"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    />
 
                 <Spinner
                     android:id="@+id/spinner_class"
@@ -84,24 +96,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Search" />
-            <!--            <TextView-->
-            <!--                android:id="@+id/textView"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:fontFamily="sans-serif-black"-->
-            <!--                android:text="@string/search_fragment"-->
-            <!--                android:textColor="#FFFFFF"-->
-            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--                app:layout_constraintEnd_toEndOf="parent"-->
-            <!--                app:layout_constraintStart_toStartOf="parent"-->
-            <!--                app:layout_constraintTop_toTopOf="parent" />-->
 
+<!--            NAVEGACION OFFERS-->
             <TextView
                 android:id="@+id/offers_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Offers"
+                android:text="@string/offers"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
