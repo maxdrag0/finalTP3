@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         navigationView.setupWithNavController(navController)
         NavigationUI.setupActionBarWithNavController(this,navController,drawerLayout)
     }
+
     override fun onSupportNavigateUp(): Boolean {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)

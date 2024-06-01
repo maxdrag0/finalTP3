@@ -68,4 +68,14 @@ class FragmentExplore : Fragment() {
             Offer("25% discount", "Visa", "Limited time offer!", R.drawable.visa_image)
         )
     }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as? AppCompatActivity)?.supportActionBar?.show()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        (activity as? AppCompatActivity)?.supportActionBar?.hide()
+    }
 }
