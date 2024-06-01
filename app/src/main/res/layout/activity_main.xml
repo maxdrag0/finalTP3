@@ -102,5 +102,4 @@
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/left_nav_menu">
     </com.google.android.material.navigation.NavigationView>
-
 </androidx.drawerlayout.widget.DrawerLayout>

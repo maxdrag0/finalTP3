@@ -17,6 +17,7 @@
         android:drawablePadding="12dp"
         android:gravity="center_vertical"
         android:text="@string/name"
+        android:textStyle="bold"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium.Inverse"
         android:textColor="@color/black"
         app:drawableStartCompat="@drawable/profileicon"

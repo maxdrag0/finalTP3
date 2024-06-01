@@ -1,11 +1,13 @@
 package ar.edu.ort.tp3.finaltp3.ui.search
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.Spinner
@@ -17,16 +19,21 @@ import androidx.recyclerview.widget.RecyclerView
 import ar.edu.ort.tp3.finaltp3.R
 import ar.edu.ort.tp3.finaltp3.adapters.OffersAdapter
 import ar.edu.ort.tp3.finaltp3.entities.Offer
+import com.google.android.material.textfield.TextInputEditText
 import java.util.Calendar
 
 class FragmentSearch : Fragment() {
     private lateinit var offersRecyclerView: RecyclerView
     private lateinit var offersAdapter: OffersAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private lateinit var departureLocation: TextInputEditText
+    private lateinit var arrivalLocation: TextInputEditText
+    private lateinit var departureDate: EditText
+    private lateinit var passengers: Spinner
+    private lateinit var flightClass: Spinner
 
+
+    @SuppressLint("CutPasteId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,13 +48,13 @@ class FragmentSearch : Fragment() {
         }
         offersRecyclerView.adapter = offersAdapter
 
-        val editTextDepartureDate: EditText = view.findViewById(R.id.edit_text_departure_date)
+        val editTextDepartureDate: EditText = view.findViewById(R.id.departureDate)
         editTextDepartureDate.setOnClickListener {
             showDatePickerDialog(editTextDepartureDate)
         }
 
-        val spinnerPassengers: Spinner = view.findViewById(R.id.spinner_passengers)
-        val spinnerClass: Spinner = view.findViewById(R.id.spinner_class)
+        val spinnerPassengers: Spinner = view.findViewById(R.id.passengers)
+        val spinnerClass: Spinner = view.findViewById(R.id.flightClass)
 
         ArrayAdapter.createFromResource(
             requireContext(),
@@ -67,9 +74,31 @@ class FragmentSearch : Fragment() {
             spinnerClass.adapter = adapter
         }
 
+//        PARAMETROS PARA SEARCH RESULTS
+        val buttonSearch: Button = view.findViewById(R.id.button_search)
+
+        departureLocation = view.findViewById(R.id.departureLocation)
+        arrivalLocation = view.findViewById(R.id.arrivalLocation)
+        departureDate = view.findViewById(R.id.departureDate)
+        passengers = view.findViewById(R.id.passengers)
+        flightClass = view.findViewById(R.id.flightClass)
+
+//        buttonSearch.setOnClickListener {
+//            val action = FragmentSearch.actionSearchToResults(
+//                departureLocation,
+//                arrivalLocation,
+//                departureDate,
+//                passengers,
+//                flightClass,
+//
+//            )
+//            findNavController().navigate(action)
+//        }
+
         return view
     }
 
+//    INICIA CON ONE WAY SIEMPRE
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -79,6 +108,7 @@ class FragmentSearch : Fragment() {
         radioButtonOneWay.isChecked = true
     }
 
+//    ELECCION DE FECHA SOLO DESDE HOY
     private fun showDatePickerDialog(editText: EditText) {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
@@ -101,6 +131,7 @@ class FragmentSearch : Fragment() {
         datePickerDialog.show()
     }
 
+//    OBTENER OFERTAS
     private fun getOffers(): List<Offer> {
         return listOf(
             Offer("20% discount", "Mastercard", "Limited time offer!", R.drawable.mastercard_image),

@@ -22,52 +22,56 @@
 
 <!--FORMULARIO-->
             <RadioGroup
-                android:id="@+id/radio_group_trip_type"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/radio_button_one_way"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="One way" />
+                    android:text="@string/one_way" />
 
                 <RadioButton
                     android:id="@+id/radio_button_round_trip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Round trip" />
+                    android:text="@string/round_trip" />
 
             </RadioGroup>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textSalida"
+                android:id="@+id/departureLocationTL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/select_departure">
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:id="@+id/departureLocation"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textLlegada"
+                android:id="@+id/arrivalLocationTL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/select_arrival">
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:id="@+id/arrivalLocation"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <EditText
-                android:id="@+id/edit_text_departure_date"
+                android:id="@+id/departureDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="Departure Date"
+                android:hint="@string/departure_date"
                 android:focusable="false"
-                android:inputType="date" />
+                android:inputType="date"
+                android:importantForAutofill="no" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -76,14 +80,14 @@
                 android:orientation="horizontal">
 
                 <Spinner
-                    android:id="@+id/spinner_passengers"
+                    android:id="@+id/passengers"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     />
 
                 <Spinner
-                    android:id="@+id/spinner_class"
+                    android:id="@+id/flightClass"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
@@ -95,7 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Search" />
+                android:text="@string/search" />
 
 <!--            NAVEGACION OFFERS-->
             <TextView

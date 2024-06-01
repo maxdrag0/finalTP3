@@ -1,4 +1,4 @@
-package ar.edu.ort.tp3.finaltp3.ui.search.adapters
+package ar.edu.ort.tp3.finaltp3.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ar.edu.ort.tp3.finaltp3.R
-import ar.edu.ort.tp3.finaltp3.ui.search.entitites.Vuelo
 import com.bumptech.glide.Glide
 
 class VuelosAdapter(private var vuelos: List<Vuelo>) : RecyclerView.Adapter<VuelosAdapter.VueloViewHolder>() {

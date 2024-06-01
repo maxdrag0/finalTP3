@@ -1,4 +1,4 @@
-package ar.edu.ort.tp3.finaltp3.ui.search.services
+package ar.edu.ort.tp3.finaltp3.services
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

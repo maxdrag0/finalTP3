@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ar.edu.ort.tp3.finaltp3.R
-import ar.edu.ort.tp3.finaltp3.ui.search.adapters.VuelosAdapter
-import ar.edu.ort.tp3.finaltp3.ui.search.entitites.Vuelo
-import ar.edu.ort.tp3.finaltp3.ui.search.services.RetrofitClient
+import ar.edu.ort.tp3.finaltp3.adapters.VuelosAdapter
+import ar.edu.ort.tp3.finaltp3.adapters.Vuelo
+import ar.edu.ort.tp3.finaltp3.services.RetrofitClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

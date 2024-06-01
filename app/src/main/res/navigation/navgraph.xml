@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navgraph.xml"
     app:startDestination="@id/explore">
+    <action
+        android:id="@+id/action_global_explore"
+        app:destination="@id/explore" />
 
     <fragment
         android:id="@+id/explore"
@@ -13,6 +16,7 @@
             android:id="@+id/action_explore_to_search"
             app:destination="@id/search" />
     </fragment>
+
     <fragment
         android:id="@+id/search"
         android:name="ar.edu.ort.tp3.finaltp3.ui.search.FragmentSearch"
@@ -20,7 +24,30 @@
         <action
             android:id="@+id/action_search_to_profile"
             app:destination="@id/profile" />
+        <action
+            android:id="@+id/action_search_to_searchResults"
+            app:destination="@id/searchResults">
+            <argument
+                android:name="departureDate"
+                app:argType="string" />
+            <argument
+                android:name="passengers"
+                app:argType="integer" />
+            <argument
+                android:name="flightClass"
+                app:argType="string" />
+            <argument
+                android:name="departureLocation"
+                app:argType="string" />
+            <argument
+                android:name="arrivalLocation"
+                app:argType="string" />
+            <argument
+                android:name="tripType"
+                app:argType="string" />
+        </action>
     </fragment>
+
     <fragment
         android:id="@+id/offers"
         android:name="ar.edu.ort.tp3.finaltp3.ui.offers.FragmentOffers"
@@ -29,6 +56,7 @@
             android:id="@+id/action_offers_to_fragmentExplore"
             app:destination="@id/fragmentExplore" />
     </fragment>
+
     <fragment
         android:id="@+id/profile"
         android:name="ar.edu.ort.tp3.finaltp3.ui.profile.FragmentProfile"
@@ -37,9 +65,7 @@
             android:id="@+id/action_profile_to_offers"
             app:destination="@id/offers" />
     </fragment>
-    <action
-        android:id="@+id/action_global_explore"
-        app:destination="@id/explore" />
+
     <fragment
         android:id="@+id/fragmentExplore"
         android:name="ar.edu.ort.tp3.finaltp3.ui.explore.FragmentExplore"
@@ -53,20 +79,13 @@
     </fragment>
 
     <fragment
-        android:id="@+id/fragmentOffers"
-        android:name="ar.edu.ort.tp3.finaltp3.ui.offers.FragmentOffers"
-        android:label="FragmentOffers" />
-    <fragment
         android:id="@+id/fragmentSettings"
         android:name="ar.edu.ort.tp3.finaltp3.ui.settings.FragmentSettings"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" >
-        <action
-            android:id="@+id/action_fragmentSettings_to_vuelosFragment"
-            app:destination="@id/vuelosFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_settings" />
+
     <fragment
-        android:id="@+id/vuelosFragment"
+        android:id="@+id/searchResults"
         android:name="ar.edu.ort.tp3.finaltp3.ui.search.FragmentSearchResults"
         android:label="VuelosFragment" />
 
