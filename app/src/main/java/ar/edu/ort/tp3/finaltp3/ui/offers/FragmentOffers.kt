@@ -41,8 +41,4 @@ class FragmentOffers : Fragment() {
         (activity as? AppCompatActivity)?.supportActionBar?.title = "Offers"
     }
 
-    override fun onResume() {
-        super.onResume()
-        (activity as? AppCompatActivity)?.supportActionBar?.hide()
-    }
 }
