@@ -15,6 +15,7 @@ import ar.edu.ort.tp3.finaltp3.adapters.OffersAdapter
 import ar.edu.ort.tp3.finaltp3.adapters.TrendingDestinationsAdapter
 import ar.edu.ort.tp3.finaltp3.entities.Destination
 import ar.edu.ort.tp3.finaltp3.entities.Offer
+import ar.edu.ort.tp3.finaltp3.ui._activities.MainActivity
 
 class FragmentExplore : Fragment() {
 
@@ -31,7 +32,12 @@ class FragmentExplore : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        if (activity is MainActivity) {
+            (activity as MainActivity?)?.mostrarToolbar()
+        }
+        if (activity is MainActivity) {
+            (activity as MainActivity?)?.mostrarBottom()
+        }
         val view = inflater.inflate(R.layout.fragment_explore, container, false)
 
         trendingDestinationsRecyclerView = view.findViewById(R.id.rv_trending_destinations)
