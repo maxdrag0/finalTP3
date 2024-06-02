@@ -79,6 +79,7 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+
     }
 
     fun esconderToolbar() {
@@ -113,14 +114,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
+        val navController = navHostFragment.navController
+        return NavigationUI.navigateUp(navController, drawerLayout) || super.onSupportNavigateUp()
+    }
+
+    override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
         } else {
-            drawerLayout.openDrawer(GravityCompat.START)
+            super.onBackPressed()
         }
-
-        return false
     }
-
 
 }
