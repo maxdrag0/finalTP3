@@ -89,4 +89,10 @@
         android:name="ar.edu.ort.tp3.finaltp3.ui.search.FragmentSearchResults"
         android:label="VuelosFragment" />
 
+    <fragment
+        android:id="@+id/fragmentDestinationDetails"
+        android:name="ar.edu.ort.tp3.finaltp3.ui.destinationsDetail.FragmentDestinationDetails"
+        android:label="Destination Details">
+    </fragment>
+
 </navigation>
