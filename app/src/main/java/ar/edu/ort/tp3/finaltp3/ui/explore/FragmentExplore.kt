@@ -38,7 +38,9 @@ class FragmentExplore : Fragment() {
 
         trendingDestinationsRecyclerView = view.findViewById(R.id.rv_trending_destinations)
         trendingDestinationsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        trendingDestinationsAdapter = TrendingDestinationsAdapter(getTrendingDestinations())
+        trendingDestinationsAdapter = TrendingDestinationsAdapter(getTrendingDestinations()){
+            findNavController().navigate(R.id.fragmentDestinationDetails)
+        }
         trendingDestinationsRecyclerView.adapter = trendingDestinationsAdapter
 
         offersRecyclerView = view.findViewById(R.id.rv_offers)
