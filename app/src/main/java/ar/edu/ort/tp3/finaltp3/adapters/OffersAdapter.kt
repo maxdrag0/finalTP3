@@ -8,34 +8,23 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ar.edu.ort.tp3.finaltp3.R
 import ar.edu.ort.tp3.finaltp3.entities.Offer
+import ar.edu.ort.tp3.finaltp3.holders.OffersHolder
 
 class OffersAdapter(
     private val offers: List<Offer>,
     private val onOfferClick: (Offer) -> Unit
-) : RecyclerView.Adapter<OffersAdapter.OfferViewHolder>() {
+) : RecyclerView.Adapter<OffersHolder>() {
 
-    inner class OfferViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val discountTextView: TextView = itemView.findViewById(R.id.offer_discount)
-        val cardTypeTextView: TextView = itemView.findViewById(R.id.offer_card_type)
-        val descriptionTextView: TextView = itemView.findViewById(R.id.offer_description)
-        val imageView: ImageView = itemView.findViewById(R.id.offer_image)
 
-        fun bind(offer: Offer) {
-            discountTextView.text = offer.discount
-            cardTypeTextView.text = offer.cardType
-            descriptionTextView.text = offer.description
-            imageView.setImageResource(offer.imageResource)
-            itemView.setOnClickListener { onOfferClick(offer) }
-        }
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OfferViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OffersHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_offer, parent, false)
-        return OfferViewHolder(view)
+
+        return OffersHolder(view, onOfferClick)
+
     }
 
-    override fun onBindViewHolder(holder: OfferViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: OffersHolder, position: Int) {
         val offer = offers[position]
         holder.bind(offer)
     }

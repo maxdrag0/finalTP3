@@ -9,33 +9,21 @@ import androidx.recyclerview.widget.RecyclerView
 import ar.edu.ort.tp3.finaltp3.R
 import ar.edu.ort.tp3.finaltp3.entities.Destination
 import ar.edu.ort.tp3.finaltp3.entities.Offer
+import ar.edu.ort.tp3.finaltp3.holders.TrendingDestinationsHolder
 
 class TrendingDestinationsAdapter(private val destinations: List<Destination>,
                                   private val onDestinationClick: (Destination) -> Unit
-) : RecyclerView.Adapter<TrendingDestinationsAdapter.DestinationViewHolder>() {
+) : RecyclerView.Adapter<TrendingDestinationsHolder>() {
 
-    inner class DestinationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val nameTextView: TextView = itemView.findViewById(R.id.destination_name)
-        val countryTextView: TextView = itemView.findViewById(R.id.destination_country)
-        val durationTextView: TextView = itemView.findViewById(R.id.destination_duration)
-        val imageView: ImageView = itemView.findViewById(R.id.destination_image)
 
-        fun bind(destination: Destination) {
-            nameTextView.text = destination.name
-            countryTextView.text = destination.country
-            durationTextView.text = destination.duration
-            imageView.setImageResource(destination.imageResource)
-            itemView.setOnClickListener { onDestinationClick(destination) }
-        }
-    }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DestinationViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrendingDestinationsHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_destination, parent, false)
-        return DestinationViewHolder(view)
+        return TrendingDestinationsHolder(view, onDestinationClick)
     }
 
-    override fun onBindViewHolder(holder: DestinationViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TrendingDestinationsHolder, position: Int) {
         val destination = destinations[position]
         holder.bind(destination)
     }
