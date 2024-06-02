@@ -23,6 +23,7 @@ class FragmentSettings : Fragment() {
     }
 
     override fun onCreateView(
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
@@ -44,7 +45,7 @@ class FragmentSettings : Fragment() {
             }
             sharedPreferences.edit().putBoolean("dark_mode", isChecked).apply()
         }
-
+        (activity as? AppCompatActivity)?.supportActionBar?.title = ""
         return view
     }
 

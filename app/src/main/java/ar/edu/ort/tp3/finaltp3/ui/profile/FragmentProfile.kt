@@ -32,7 +32,7 @@ class FragmentProfile : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // Establecer el título de la actividad en una cadena vacía
+
         (activity as? AppCompatActivity)?.supportActionBar?.title = ""
     }
 
