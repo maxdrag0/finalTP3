@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -95,7 +96,27 @@ class FragmentSearch : Fragment() {
 
 
         buttonSearch.setOnClickListener {
-            findNavController().navigate(R.id.searchResults)
+            val departureLocationValue = departureLocation.text.toString()
+            val arrivalLocationValue = arrivalLocation.text.toString()
+            val departureDateValue = departureDate.text.toString()
+//            val returnDateValue = returnDate.text.toString()
+            val passengersValue = passengers.selectedItem.toString()
+            val flightClassValue = flightClass.selectedItem.toString()
+
+            if (departureLocationValue.isEmpty() || arrivalLocationValue.isEmpty() || departureDateValue.isEmpty()) {
+                // Mostrar mensaje de error o indicar que los campos son obligatorios
+                // Por ejemplo:
+                Toast.makeText(requireContext(), "Por favor completa todos los campos", Toast.LENGTH_SHORT).show()
+            } else {
+                val bundle = Bundle()
+                bundle.putString("departureLocation", departureLocationValue)
+                bundle.putString("arrivalLocation", arrivalLocationValue)
+                bundle.putString("departureDate", departureDateValue)
+                bundle.putString("passengers", passengersValue)
+                bundle.putString("flightClass", flightClassValue)
+
+                findNavController().navigate(R.id.action_search_to_searchResults, bundle)
+            }
         }
 
         return view

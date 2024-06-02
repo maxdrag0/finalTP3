@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,20 +30,34 @@ class FragmentSearchResults : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val view = inflater.inflate(R.layout.fragment_results, container, false)
+
+        val departureLocation = arguments?.getString("departureLocation")
+        val arrivalLocation = arguments?.getString("arrivalLocation")
+        val departureDate = arguments?.getString("departureDate")
+        val returnDate = arguments?.getString("returnDate")
+        val passengers = arguments?.getString("passengers")
+        val flightClass = arguments?.getString("flightClass")
+
+//      PRUEBA DE PARAMETROS
+        val textView = view.findViewById<TextView>(R.id.textView)
+        textView.text = "From: $departureLocation, To: $arrivalLocation, Departure: $departureDate, Return: $returnDate, Passengers: $passengers, Class: $flightClass"
+//      PRUEBA DE PARAMETROS
+
         if (activity is MainActivity) {
             (activity as MainActivity?)?.esconderToolbar()
         }
         if (activity is MainActivity) {
             (activity as MainActivity?)?.esconderBottom()
         }
-        val view = inflater.inflate(R.layout.fragment_results, container, false)
+
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         vuelosAdapter = VuelosAdapter(listOf())
         recyclerView.adapter = vuelosAdapter
 
         fetchVuelos()
-
+        (activity as? AppCompatActivity)?.supportActionBar?.title = ""
         return view
     }
 

@@ -91,6 +91,7 @@
     </fragment>
 
     <fragment
+
         android:id="@+id/fragmentDestinationSearch"
         android:name="ar.edu.ort.tp3.finaltp3.ui.search.FragmentSearch"
         android:label="Destination Details">

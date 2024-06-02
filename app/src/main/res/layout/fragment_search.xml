@@ -21,6 +21,7 @@
             android:padding="16dp">
 
 <!--FORMULARIO-->
+<!--SELECCION IDA O IDA Y VUELTA-->
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -41,6 +42,7 @@
 
             </RadioGroup>
 
+<!--LUGAR DE SALIDA-->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/departureLocationTL"
                 android:layout_width="match_parent"
@@ -52,6 +54,7 @@
                     android:id="@+id/departureLocation"/>
             </com.google.android.material.textfield.TextInputLayout>
 
+<!--LUGAR DE LLEGADA-->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/arrivalLocationTL"
                 android:layout_width="match_parent"
@@ -63,42 +66,56 @@
                     android:id="@+id/arrivalLocation"/>
             </com.google.android.material.textfield.TextInputLayout>
 
+<!--FECHA DE SALIDA-->
             <EditText
                 android:id="@+id/departureDate"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="71dp"
                 android:layout_marginTop="16dp"
-                android:hint="@string/departure_date"
                 android:focusable="false"
-                android:inputType="date"
-                android:importantForAutofill="no" />
+                android:hint="@string/departure_date"
+                android:importantForAutofill="no"
+                android:inputType="date" />
 
+<!--FECHA DE VUELTA-->
+<!--            <EditText-->
+<!--                android:id="@+id/returnDate"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:hint="@string/departure_date"-->
+<!--                android:focusable="false"-->
+<!--                android:inputType="date"-->
+<!--                android:importantForAutofill="no" />-->
+
+<!--PASAJEROS Y CLASE-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="75dp"
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
                 <Spinner
                     android:id="@+id/passengers"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
 
                 <Spinner
                     android:id="@+id/flightClass"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1" />
 
             </LinearLayout>
 
+<!--BOTON SEARCH-->
             <Button
                 android:id="@+id/button_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/yellow"
                 android:text="@string/search" />
 
 <!--            NAVEGACION OFFERS-->
