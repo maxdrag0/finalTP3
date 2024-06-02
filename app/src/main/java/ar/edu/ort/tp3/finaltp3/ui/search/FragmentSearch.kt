@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
@@ -91,20 +92,10 @@ class FragmentSearch : Fragment() {
         passengers = view.findViewById(R.id.passengers)
         flightClass = view.findViewById(R.id.flightClass)
 
+
+
         buttonSearch.setOnClickListener {
-//            val action = FragmentSearch.actionSearchToResults(
-//                departureLocation,
-//                arrivalLocation,
-//                departureDate,
-//                passengers,
-//                flightClass,
-//
-//            )
-//            findNavController().navigate(action)
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
+            findNavController().navigate(R.id.searchResults)
         }
 
         return view
