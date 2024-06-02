@@ -15,6 +15,12 @@
         <action
             android:id="@+id/action_explore_to_search"
             app:destination="@id/search" />
+        <action
+            android:id="@+id/action_explore_to_offers2"
+            app:destination="@id/offers" />
+        <action
+            android:id="@+id/action_explore_to_fragmentSettings"
+            app:destination="@id/fragmentSettings" />
     </fragment>
 
     <fragment
@@ -46,9 +52,7 @@
                 android:name="tripType"
                 app:argType="string" />
         </action>
-        <action
-            android:id="@+id/action_search_to_fragmentSearchResults"
-            app:destination="@id/fragmentSearchResults" />
+
     </fragment>
 
     <fragment
@@ -56,8 +60,8 @@
         android:name="ar.edu.ort.tp3.finaltp3.ui.offers.FragmentOffers"
         android:label="FragmentOffers" >
         <action
-            android:id="@+id/action_offers_to_fragmentExplore"
-            app:destination="@id/fragmentExplore" />
+            android:id="@+id/action_offers_to_explore"
+            app:destination="@id/explore" />
     </fragment>
 
     <fragment
@@ -67,18 +71,6 @@
         <action
             android:id="@+id/action_profile_to_offers"
             app:destination="@id/offers" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/fragmentExplore"
-        android:name="ar.edu.ort.tp3.finaltp3.ui.explore.FragmentExplore"
-        android:label="FragmentExplore">
-        <action
-            android:id="@+id/action_explore_to_offers"
-            app:destination="@id/offers" />
-        <action
-            android:id="@+id/action_fragmentExplore_to_fragmentSettings"
-            app:destination="@id/fragmentSettings" />
     </fragment>
 
     <fragment
@@ -97,6 +89,7 @@
         android:name="ar.edu.ort.tp3.finaltp3.ui.destinationsDetail.FragmentDestinationDetails"
         android:label="Destination Details">
     </fragment>
+
     <fragment
         android:id="@+id/fragmentDestinationSearch"
         android:name="ar.edu.ort.tp3.finaltp3.ui.search.FragmentSearch"
@@ -104,18 +97,5 @@
     </fragment>
 
 
-    <fragment
-        android:id="@+id/fragmentSearch"
-        android:name="ar.edu.ort.tp3.finaltp3.ui.search.FragmentSearch"
-        android:label="fragment_search">
-        <action
-            android:id="@+id/action_fragmentSearch_to_fragmentSearchResults"
-            app:destination="@id/fragmentSearchResults" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/fragmentSearchResults"
-        android:name="ar.edu.ort.tp3.finaltp3.ui.search.FragmentSearchResults"
-        android:label="fragment_search_results" />
 
 </navigation>
