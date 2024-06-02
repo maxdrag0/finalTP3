@@ -11,6 +11,7 @@ import ar.edu.ort.tp3.finaltp3.R
 import ar.edu.ort.tp3.finaltp3.adapters.VuelosAdapter
 import ar.edu.ort.tp3.finaltp3.entities.Vuelo
 import ar.edu.ort.tp3.finaltp3.services.RetrofitClient
+import ar.edu.ort.tp3.finaltp3.ui._activities.MainActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,6 +28,12 @@ class FragmentSearchResults : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        if (activity is MainActivity) {
+            (activity as MainActivity?)?.esconderToolbar()
+        }
+        if (activity is MainActivity) {
+            (activity as MainActivity?)?.esconderBottom()
+        }
         val view = inflater.inflate(R.layout.fragment_results, container, false)
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())

@@ -1,8 +1,11 @@
 package ar.edu.ort.tp3.finaltp3.ui._activities
 
+
+
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
@@ -14,6 +17,7 @@ import androidx.navigation.ui.setupWithNavController
 import ar.edu.ort.tp3.finaltp3.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var bottomNavView : BottomNavigationView
@@ -77,6 +81,31 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun esconderToolbar() {
+        val tool = findViewById<View>(R.id.header_layout)
+        if (tool != null) {
+            tool.visibility = View.GONE
+        }
+    }
+    fun mostrarToolbar() {
+        val tool = findViewById<View>(R.id.header_layout)
+        if (tool != null) {
+            tool.visibility = View.VISIBLE
+        }
+    }
+    fun esconderBottom() {
+        val bottom = findViewById<View>(R.id.bottom_bar)
+        if (bottom != null) {
+            bottom.visibility = View.GONE
+        }
+    }
+    fun mostrarBottom() {
+
+        val bottom = findViewById<View>(R.id.bottom_bar)
+        if (bottom != null) {
+            bottom.visibility = View.VISIBLE
+        }
+    }
     private fun setupDrawerLayout(){
         val navController = navHostFragment.navController
         navigationView.setupWithNavController(navController)

@@ -11,7 +11,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.Spinner
-import androidx.navigation.fragment.findNavController
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -20,8 +19,10 @@ import androidx.recyclerview.widget.RecyclerView
 import ar.edu.ort.tp3.finaltp3.R
 import ar.edu.ort.tp3.finaltp3.adapters.OffersAdapter
 import ar.edu.ort.tp3.finaltp3.entities.Offer
+import ar.edu.ort.tp3.finaltp3.ui._activities.MainActivity
 import com.google.android.material.textfield.TextInputEditText
 import java.util.Calendar
+
 
 class FragmentSearch : Fragment() {
     private lateinit var offersRecyclerView: RecyclerView
@@ -38,6 +39,13 @@ class FragmentSearch : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        if (activity is MainActivity) {
+            (activity as MainActivity?)?.esconderToolbar()
+        }
+        if (activity is MainActivity) {
+            (activity as MainActivity?)?.mostrarBottom()
+        }
+
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_search, container, false)
 

@@ -11,6 +11,7 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatDelegate
 import ar.edu.ort.tp3.finaltp3.R
+import ar.edu.ort.tp3.finaltp3.ui._activities.MainActivity
 
 class FragmentSettings : Fragment() {
 
@@ -25,7 +26,9 @@ class FragmentSettings : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        if (activity is MainActivity) {
+            (activity as MainActivity?)?.mostrarToolbar()
+        }
         val view = inflater.inflate(R.layout.fragment_settings, container, false)
         darkModeSwitch = view.findViewById(R.id.switch_dark_mode)
         sharedPreferences = requireActivity().getSharedPreferences("user_preferences", Context.MODE_PRIVATE)
