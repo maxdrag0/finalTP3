@@ -26,8 +26,10 @@ data class Flight(
 
 data class Airport(
     val name: String,
+    val id: String,
     val time: String
 )
+
 interface ApiService {
     @GET("search?engine=google_flights&api_key=123&departure_id=EZE&arrival_id=MIA&outbound_date=2024-05-31&return_date=2024-06-10")
     suspend fun getVuelos(): ApiResponse

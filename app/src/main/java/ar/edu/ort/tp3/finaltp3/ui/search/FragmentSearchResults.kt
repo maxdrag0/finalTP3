@@ -48,9 +48,9 @@ class FragmentSearchResults : Fragment() {
                             airline = flight.airline,
                             duration = flight.duration,
                             departureAirport = flight.departure_airport.name,
-                            departureTime = flight.departure_airport.time,
+                            departureAirportId = flight.departure_airport.id,
                             arrivalAirport = flight.arrival_airport.name,
-                            arrivalTime = flight.arrival_airport.time,
+                            arrivalAirportId = flight.arrival_airport.id,
                             travelClass = flight.travel_class,
                             price = bestFlight.price,
                             airlineLogo = flight.airline_logo
@@ -67,5 +67,6 @@ class FragmentSearchResults : Fragment() {
             }
         }
     }
+
 
 }

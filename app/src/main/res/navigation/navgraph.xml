@@ -87,4 +87,30 @@
         android:name="ar.edu.ort.tp3.finaltp3.ui.search.FragmentSearchResults"
         android:label="VuelosFragment" />
 
+    <fragment
+        android:id="@+id/fragmentDestinationDetails"
+        android:name="ar.edu.ort.tp3.finaltp3.ui.destinationsDetail.FragmentDestinationDetails"
+        android:label="Destination Details">
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentDestinationSearch"
+        android:name="ar.edu.ort.tp3.finaltp3.ui.search.FragmentSearch"
+        android:label="Destination Details">
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/fragmentSearch"
+        android:name="ar.edu.ort.tp3.finaltp3.ui.search.FragmentSearch"
+        android:label="fragment_search">
+        <action
+            android:id="@+id/action_fragmentSearch_to_fragmentSearchResults"
+            app:destination="@id/fragmentSearchResults" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentSearchResults"
+        android:name="ar.edu.ort.tp3.finaltp3.ui.search.FragmentSearchResults"
+        android:label="fragment_search_results" />
+
 </navigation>

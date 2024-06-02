@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.Spinner
+import androidx.navigation.fragment.findNavController
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -31,7 +32,6 @@ class FragmentSearch : Fragment() {
     private lateinit var departureDate: EditText
     private lateinit var passengers: Spinner
     private lateinit var flightClass: Spinner
-
 
     @SuppressLint("CutPasteId")
     override fun onCreateView(
@@ -142,5 +142,4 @@ class FragmentSearch : Fragment() {
             Offer("25% discount", "Visa", "Limited time offer!", R.drawable.visa_image)
         )
     }
-
 }
