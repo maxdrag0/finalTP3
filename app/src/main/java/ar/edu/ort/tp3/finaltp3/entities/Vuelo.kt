@@ -1,4 +1,4 @@
-package ar.edu.ort.tp3.finaltp3.adapters
+package ar.edu.ort.tp3.finaltp3.entities
 
 data class Vuelo(
     val airline: String,

@@ -83,7 +83,7 @@ class FragmentSearch : Fragment() {
         passengers = view.findViewById(R.id.passengers)
         flightClass = view.findViewById(R.id.flightClass)
 
-//        buttonSearch.setOnClickListener {
+        buttonSearch.setOnClickListener {
 //            val action = FragmentSearch.actionSearchToResults(
 //                departureLocation,
 //                arrivalLocation,
@@ -93,7 +93,11 @@ class FragmentSearch : Fragment() {
 //
 //            )
 //            findNavController().navigate(action)
-//        }
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+        }
 
         return view
     }
@@ -108,7 +112,7 @@ class FragmentSearch : Fragment() {
         radioButtonOneWay.isChecked = true
     }
 
-//    ELECCION DE FECHA SOLO DESDE HOY
+//    ELECCION DE FECHA
     private fun showDatePickerDialog(editText: EditText) {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)

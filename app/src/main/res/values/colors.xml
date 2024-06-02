@@ -5,5 +5,5 @@
     <color name="blue">#6558DD</color>
     <color name="colorPrimaryDark">#00695C</color>
     <color name="background_light">#f8f9fb</color>
-<!--    <color name="background_dark">#3C3B3B</color>-->
+    <color name="background_dark">#3C3B3B</color>
 </resources>

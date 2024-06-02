@@ -22,10 +22,6 @@ class FragmentExplore : Fragment() {
     private lateinit var offersRecyclerView: RecyclerView
     private lateinit var offersAdapter: OffersAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

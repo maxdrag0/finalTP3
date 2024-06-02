@@ -46,12 +46,35 @@ class MainActivity : AppCompatActivity() {
 
 
         bottomNavView = findViewById(R.id.bottom_bar)
-        NavigationUI.setupWithNavController(bottomNavView, navHostFragment.navController)
-
+        val navController = navHostFragment.navController
+        bottomNavView.setupWithNavController(navController)
         setupDrawerLayout()
 
+        bottomNavView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.explore -> {
+                    navController.navigate(R.id.explore)
+                    true
+                }
 
+                R.id.search -> {
+                    navController.navigate(R.id.search)
+                    true
+                }
 
+                R.id.offers -> {
+                    navController.navigate(R.id.offers)
+                    true
+                }
+
+                R.id.profile -> {
+                    navController.navigate(R.id.profile)
+                    true
+                }
+
+                else -> false
+            }
+        }
     }
 
     private fun setupDrawerLayout(){

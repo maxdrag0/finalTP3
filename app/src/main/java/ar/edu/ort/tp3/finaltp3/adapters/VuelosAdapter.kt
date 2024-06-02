@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ar.edu.ort.tp3.finaltp3.R
+import ar.edu.ort.tp3.finaltp3.entities.Vuelo
 import com.bumptech.glide.Glide
 
 class VuelosAdapter(private var vuelos: List<Vuelo>) : RecyclerView.Adapter<VuelosAdapter.VueloViewHolder>() {

@@ -4,13 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ar.edu.ort.tp3.finaltp3.R
 import ar.edu.ort.tp3.finaltp3.adapters.VuelosAdapter
-import ar.edu.ort.tp3.finaltp3.adapters.Vuelo
+import ar.edu.ort.tp3.finaltp3.entities.Vuelo
 import ar.edu.ort.tp3.finaltp3.services.RetrofitClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
