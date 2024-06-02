@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -49,9 +48,9 @@ class FragmentSearchResults : Fragment() {
                             airline = flight.airline,
                             duration = flight.duration,
                             departureAirport = flight.departure_airport.name,
-                            departureTime = flight.departure_airport.time,
+                            departureAirportId = flight.departure_airport.id,
                             arrivalAirport = flight.arrival_airport.name,
-                            arrivalTime = flight.arrival_airport.time,
+                            arrivalAirportId = flight.arrival_airport.id,
                             travelClass = flight.travel_class,
                             price = bestFlight.price,
                             airlineLogo = flight.airline_logo
@@ -68,5 +67,6 @@ class FragmentSearchResults : Fragment() {
             }
         }
     }
+
 
 }

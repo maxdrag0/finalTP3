@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.Spinner
+import androidx.navigation.fragment.findNavController
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -31,7 +32,6 @@ class FragmentSearch : Fragment() {
     private lateinit var departureDate: EditText
     private lateinit var passengers: Spinner
     private lateinit var flightClass: Spinner
-
 
     @SuppressLint("CutPasteId")
     override fun onCreateView(
@@ -74,7 +74,6 @@ class FragmentSearch : Fragment() {
             spinnerClass.adapter = adapter
         }
 
-//        PARAMETROS PARA SEARCH RESULTS
         val buttonSearch: Button = view.findViewById(R.id.button_search)
 
         departureLocation = view.findViewById(R.id.departureLocation)
@@ -83,22 +82,13 @@ class FragmentSearch : Fragment() {
         passengers = view.findViewById(R.id.passengers)
         flightClass = view.findViewById(R.id.flightClass)
 
-//        buttonSearch.setOnClickListener {
-//            val action = FragmentSearch.actionSearchToResults(
-//                departureLocation,
-//                arrivalLocation,
-//                departureDate,
-//                passengers,
-//                flightClass,
-//
-//            )
-//            findNavController().navigate(action)
-//        }
+        buttonSearch.setOnClickListener {
+            findNavController().navigate(R.id.action_search_to_fragmentSearchResults)
+        }
 
         return view
     }
 
-//    INICIA CON ONE WAY SIEMPRE
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -108,7 +98,6 @@ class FragmentSearch : Fragment() {
         radioButtonOneWay.isChecked = true
     }
 
-//    ELECCION DE FECHA SOLO DESDE HOY
     private fun showDatePickerDialog(editText: EditText) {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
@@ -131,12 +120,10 @@ class FragmentSearch : Fragment() {
         datePickerDialog.show()
     }
 
-//    OBTENER OFERTAS
     private fun getOffers(): List<Offer> {
         return listOf(
             Offer("20% discount", "Mastercard", "Limited time offer!", R.drawable.mastercard_image),
             Offer("25% discount", "Visa", "Limited time offer!", R.drawable.visa_image)
         )
     }
-
 }

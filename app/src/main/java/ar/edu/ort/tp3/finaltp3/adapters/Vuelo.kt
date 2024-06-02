@@ -4,9 +4,9 @@ data class Vuelo(
     val airline: String,
     val duration: Int,
     val departureAirport: String,
-    val departureTime: String,
+    val departureAirportId: String,
     val arrivalAirport: String,
-    val arrivalTime: String,
+    val arrivalAirportId: String,
     val travelClass: String,
     val price: Double,
     val airlineLogo: String

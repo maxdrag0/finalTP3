@@ -15,9 +15,9 @@ class VuelosAdapter(private var vuelos: List<Vuelo>) : RecyclerView.Adapter<Vuel
         val airline: TextView = itemView.findViewById(R.id.airline)
         val duration: TextView = itemView.findViewById(R.id.duration)
         val departureAirport: TextView = itemView.findViewById(R.id.departureAirport)
-        val departureTime: TextView = itemView.findViewById(R.id.departureTime)
+        val departureAirportId: TextView = itemView.findViewById(R.id.departureAirportId)
         val arrivalAirport: TextView = itemView.findViewById(R.id.arrivalAirport)
-        val arrivalTime: TextView = itemView.findViewById(R.id.arrivalTime)
+        val arrivalAirportId: TextView = itemView.findViewById(R.id.arrivalAirportId)
         val travelClass: TextView = itemView.findViewById(R.id.travelClass)
         val price: TextView = itemView.findViewById(R.id.price)
         val airlineLogo: ImageView = itemView.findViewById(R.id.airlineLogo)
@@ -33,13 +33,14 @@ class VuelosAdapter(private var vuelos: List<Vuelo>) : RecyclerView.Adapter<Vuel
         holder.airline.text = vuelo.airline
         holder.duration.text = "${vuelo.duration} min"
         holder.departureAirport.text = vuelo.departureAirport
-        holder.departureTime.text = vuelo.departureTime
+        holder.departureAirportId.text = vuelo.departureAirportId
         holder.arrivalAirport.text = vuelo.arrivalAirport
-        holder.arrivalTime.text = vuelo.arrivalTime
+        holder.arrivalAirportId.text = vuelo.arrivalAirportId
         holder.travelClass.text = vuelo.travelClass
         holder.price.text = "$${vuelo.price}"
         Glide.with(holder.itemView.context).load(vuelo.airlineLogo).into(holder.airlineLogo)
     }
+
 
     override fun getItemCount(): Int = vuelos.size
 
