@@ -1,6 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.FragmentProfile">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/baros_image" /> <!-- Reemplaza con tu imagen de fondo -->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/background_image"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true">
+
+        <!-- Texto "Boracay" -->
+        <TextView
+            android:id="@+id/text_boracay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Boracay"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:paddingEnd="8dp" /> <!-- Añadido paddingEnd -->
+
+        <TextView
+            android:id="@+id/text_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$349"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginStart="260dp" /> <!-- Margen a la izquierda -->
+
+        <TextView
+            android:id="@+id/text_philippines"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Philippines"
+            android:textSize="16sp"
+            android:textColor="#808080" /> <!-- Color gris -->
+
+        <TextView
+            android:id="@+id/text_overview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Overview"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" /> <!-- Añadido margen superior -->
+
+        <TextView
+            android:id="@+id/text_paragraph"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Spend 5 days and 4 nights in one of the best islands in the world! Bask in the sun while walking in the white sand beach and enjoy the night partying at the popular seaside bars."
+            android:textSize="16sp"
+            android:layout_marginTop="8dp" /> <!-- Añadido margen superior -->
+
+        <TextView
+            android:id="@+id/text_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Photo"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" /> <!-- Añadido margen superior -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/photo"
+                android:scaleType="centerCrop"
+                android:layout_marginEnd="8dp" />
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="match_parent" />
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/photo2"
+                android:scaleType="centerCrop"
+                android:layout_marginEnd="8dp" />
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:id="@+id/image3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/photo3"
+                android:scaleType="centerCrop" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_book_now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Book now"
+            android:textColor="@android:color/white"
+            android:background="@color/white"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="150dp"/>
+    </LinearLayout>
+
+</RelativeLayout>
