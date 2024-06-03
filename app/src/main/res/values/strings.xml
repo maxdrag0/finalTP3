@@ -12,6 +12,8 @@
     <string name="departure_date">Departure Date</string>
     <string name="search">Search</string>
     <string name="select_date">Select Date</string>
+    <string name="description">I like the beach, mountains, forest and everything about nature! :)</string>
+    <string name="city">Baguio, Philippines</string>
     <string-array name="passengers_array">
         <item>1</item>
         <item>2</item>

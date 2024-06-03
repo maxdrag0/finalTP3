@@ -44,10 +44,10 @@
 
             <!-- Primer TextView -->
             <TextView
-                android:id="@+id/text_view1"
+                android:id="@+id/name_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Macy Johnson"
+                android:text="@string/name"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:paddingTop="16dp"
@@ -55,20 +55,20 @@
 
             <!-- Segundo TextView -->
             <TextView
-                android:id="@+id/text_view2"
+                android:id="@+id/city_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Baguio, Philippines"
+                android:text="@string/city"
                 android:textSize="16sp"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp" />
 
             <!-- Tercer TextView -->
             <TextView
-                android:id="@+id/text_view3"
+                android:id="@+id/description_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="I like the beach, mountains, forest and everything about nature! :)"
+                android:text="@string/description"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:paddingTop="16dp"
@@ -82,9 +82,10 @@
                 android:gravity="center_vertical"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp">
+
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/payment" />
                 <TextView
                     android:id="@+id/text_view4"
@@ -104,9 +105,10 @@
                 android:gravity="center_vertical"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp">
+
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/account" />
                 <TextView
                     android:id="@+id/text_view5"
@@ -126,9 +128,10 @@
                 android:gravity="center_vertical"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp">
+
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/settings" />
                 <TextView
                     android:id="@+id/text_view6"
@@ -148,9 +151,10 @@
                 android:gravity="center_vertical"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp">
+
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/logout" />
                 <TextView
                     android:id="@+id/text_view7"
