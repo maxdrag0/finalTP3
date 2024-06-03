@@ -2,8 +2,11 @@
 <resources>
     <color name="fontColor">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="blue">#6558DD</color>
+    <color name="blue">#1262ae</color>
+    <color name="black">#000000</color>
     <color name="colorPrimaryDark">#00695C</color>
+    <color name="gray">#eaebec</color>
+
 <!--    <color name="background_light">#f8f9fb</color>-->
     <color name="background_light">#f8f9fb</color>
   <color name="yellow">#F4BA07</color>
