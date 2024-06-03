@@ -4,12 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ar.edu.ort.tp3.finaltp3.R
+import ar.edu.ort.tp3.finaltp3.R.id
 import ar.edu.ort.tp3.finaltp3.adapters.VuelosAdapter
 import ar.edu.ort.tp3.finaltp3.entities.Vuelo
 import ar.edu.ort.tp3.finaltp3.services.RetrofitClient
@@ -32,6 +36,8 @@ class FragmentSearchResults : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_results, container, false)
 
+        val navController = findNavController()
+
         val departureLocation = arguments?.getString("departureLocation")
         val arrivalLocation = arguments?.getString("arrivalLocation")
         val departureDate = arguments?.getString("departureDate")
@@ -53,8 +59,9 @@ class FragmentSearchResults : Fragment() {
 
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        vuelosAdapter = VuelosAdapter(listOf())
+        vuelosAdapter = VuelosAdapter(listOf(), navController)
         recyclerView.adapter = vuelosAdapter
+
 
         fetchVuelos()
         (activity as? AppCompatActivity)?.supportActionBar?.title = ""

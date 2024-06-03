@@ -82,7 +82,11 @@
     <fragment
         android:id="@+id/searchResults"
         android:name="ar.edu.ort.tp3.finaltp3.ui.search.FragmentSearchResults"
-        android:label="VuelosFragment" />
+        android:label="VuelosFragment" >
+        <action
+            android:id="@+id/action_searchResults_to_fragmentDestinationDetails"
+            app:destination="@id/fragmentDestinationDetails" />
+    </fragment>
 
     <fragment
         android:id="@+id/fragmentDestinationDetails"
