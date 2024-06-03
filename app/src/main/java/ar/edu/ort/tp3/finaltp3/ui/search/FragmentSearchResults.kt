@@ -89,12 +89,11 @@ class FragmentSearchResults : Fragment() {
                 val retrofit = RetrofitClient.getRetrofit(baseUrl)
                 val apiService = retrofit.create(ApiService::class.java)
 
-
                 val url = "$queryPath&departure_id=$departureLocation&arrival_id=$arrivalLocation&outbound_date=$departureDate&return_date=$returnDate&passengers=$passengers&class=$flightClass"
 
                 val response = apiService.getVuelos(url)
-                val vuelos = response.best_flights.map { bestFlight ->
-                    bestFlight.flights.firstOrNull()?.let { flight ->
+                val vuelos = response.best_flights.flatMap { bestFlight ->
+                    bestFlight.flights.map { flight ->
                         Vuelo(
                             airline = flight.airline,
                             duration = flight.duration,
@@ -107,7 +106,7 @@ class FragmentSearchResults : Fragment() {
                             airlineLogo = flight.airline_logo
                         )
                     }
-                }.filterNotNull()
+                }
 
                 withContext(Dispatchers.Main) {
                     vuelosAdapter.updateVuelos(vuelos)
@@ -118,4 +117,5 @@ class FragmentSearchResults : Fragment() {
             }
         }
     }
+
 }
