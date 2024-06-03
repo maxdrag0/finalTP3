@@ -11,6 +11,7 @@
     <string name="round_trip">Round trip</string>
     <string name="departure_date">Departure Date</string>
     <string name="search">Search</string>
+    <string name="select_date">Select Date</string>
     <string-array name="passengers_array">
         <item>1</item>
         <item>2</item>
