@@ -24,9 +24,5 @@
         android:id="@+id/fragmentSettings"
         android:icon="@drawable/iconsettings"
         android:title="Settings" />
-    <item
-        android:id="@+id/searchResults"
-        android:icon="@drawable/iconsettings"
-        android:title="vuelos" />
 </menu>
 

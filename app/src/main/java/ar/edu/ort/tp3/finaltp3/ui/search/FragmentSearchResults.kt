@@ -16,6 +16,7 @@ import ar.edu.ort.tp3.finaltp3.R
 import ar.edu.ort.tp3.finaltp3.R.id
 import ar.edu.ort.tp3.finaltp3.adapters.VuelosAdapter
 import ar.edu.ort.tp3.finaltp3.entities.Vuelo
+import ar.edu.ort.tp3.finaltp3.services.ApiService
 import ar.edu.ort.tp3.finaltp3.services.RetrofitClient
 import ar.edu.ort.tp3.finaltp3.ui._activities.MainActivity
 import kotlinx.coroutines.CoroutineScope
@@ -44,11 +45,20 @@ class FragmentSearchResults : Fragment() {
         val returnDate = arguments?.getString("returnDate")
         val passengers = arguments?.getString("passengers")
         val flightClass = arguments?.getString("flightClass")
+        val baseUrl = arguments?.getString("baseUrl")
+        val queryPath = arguments?.getString("queryPath")
 
-//      PRUEBA DE PARAMETROS
-        val textView = view.findViewById<TextView>(R.id.textView)
-        textView.text = "From: $departureLocation, To: $arrivalLocation, Departure: $departureDate, Return: $returnDate, Passengers: $passengers, Class: $flightClass"
-//      PRUEBA DE PARAMETROS
+        // Prueba de parámetros
+
+        val fecha = view.findViewById<TextView>(R.id.tvDepartureDate)
+        fecha.text = departureDate
+
+        val from = view.findViewById<TextView>(R.id.tvFrom)
+        from.text = departureLocation
+
+        val to = view.findViewById<TextView>(R.id.tvTo)
+        to.text = arrivalLocation
+
 
         if (activity is MainActivity) {
             (activity as MainActivity?)?.esconderToolbar()
@@ -62,16 +72,35 @@ class FragmentSearchResults : Fragment() {
         vuelosAdapter = VuelosAdapter(listOf(), navController)
         recyclerView.adapter = vuelosAdapter
 
-
-        fetchVuelos()
+        fetchVuelos(baseUrl, queryPath, departureLocation, arrivalLocation, departureDate, returnDate, passengers, flightClass)
         (activity as? AppCompatActivity)?.supportActionBar?.title = ""
         return view
     }
 
-    private fun fetchVuelos() {
+    private fun fetchVuelos(
+        baseUrl: String?,
+        queryPath: String?,
+        departureLocation: String?,
+        arrivalLocation: String?,
+        departureDate: String?,
+        returnDate: String?,
+        passengers: String?,
+        flightClass: String?
+    ) {
+        if (baseUrl == null || queryPath == null) {
+            // Manejar el caso en que falten los parámetros
+            return
+        }
+
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val response = RetrofitClient.retrofitService.getVuelos()
+                val retrofit = RetrofitClient.getRetrofit(baseUrl)
+                val apiService = retrofit.create(ApiService::class.java)
+
+
+                val url = "$queryPath&departure_id=$departureLocation&arrival_id=$arrivalLocation&outbound_date=$departureDate&return_date=$returnDate&passengers=$passengers&class=$flightClass"
+
+                val response = apiService.getVuelos(url)
                 val vuelos = response.best_flights.map { bestFlight ->
                     bestFlight.flights.firstOrNull()?.let { flight ->
                         Vuelo(
@@ -97,6 +126,4 @@ class FragmentSearchResults : Fragment() {
             }
         }
     }
-
-
 }

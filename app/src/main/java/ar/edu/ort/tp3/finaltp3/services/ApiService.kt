@@ -3,6 +3,7 @@ package ar.edu.ort.tp3.finaltp3.services
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Url
 
 
 data class ApiResponse(
@@ -31,18 +32,16 @@ data class Airport(
 )
 
 interface ApiService {
-    @GET("search?engine=google_flights&api_key=123&departure_id=EZE&arrival_id=MIA&outbound_date=2024-05-31&return_date=2024-06-10")
-    suspend fun getVuelos(): ApiResponse
+    @GET
+    suspend fun getVuelos(@Url url: String): ApiResponse
 }
 
-object RetrofitClient {
-    private const val BASE_URL = "https://d9811bf4-5e67-4a8c-bdcf-603cbbfc0275.mock.pstmn.io/"
 
-    val retrofitService: ApiService by lazy {
-        Retrofit.Builder()
-            .baseUrl(BASE_URL)
+object RetrofitClient {
+    fun getRetrofit(baseUrl: String): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(ApiService::class.java)
     }
 }
