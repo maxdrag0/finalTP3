@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,6 +15,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/baros_image" />
 
+
     <!-- Foto de perfil centrada horizontalmente y ubicada sobre la imagen de fondo -->
     <ImageView
         android:id="@+id/profile_image"
@@ -25,149 +27,139 @@
         android:padding="8dp"
         android:translationX="-120dp"
         android:translationY="-50dp"/>
-
-    <!-- ScrollView con contenido ajustado -->
     <ScrollView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/profile_image"
-        android:translationY="-60dp"> <!-- Ajusta este valor según sea necesario -->
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_below="@id/profile_image">
 
         <!-- Contenedor de los TextViews -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:baselineAligned="false"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:translationY="-70dp">
 
             <!-- Primer TextView -->
             <TextView
                 android:id="@+id/text_view1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
                 android:text="Macy Johnson"
-                android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp" />
 
             <!-- Segundo TextView -->
             <TextView
                 android:id="@+id/text_view2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
                 android:text="Baguio, Philippines"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp" />
 
             <!-- Tercer TextView -->
             <TextView
                 android:id="@+id/text_view3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
                 android:text="I like the beach, mountains, forest and everything about nature! :)"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp" />
 
             <!-- Cuarto TextView con ícono -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
                 android:orientation="horizontal"
+                android:gravity="center_vertical"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp">
-
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/payment" />
-
                 <TextView
                     android:id="@+id/text_view4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingStart="8dp"
                     android:text="Payment details"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:paddingStart="8dp" />
             </LinearLayout>
 
             <!-- Quinto TextView con ícono -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
                 android:orientation="horizontal"
+                android:gravity="center_vertical"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp">
-
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/account" />
-
                 <TextView
                     android:id="@+id/text_view5"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingStart="8dp"
                     android:text="Referral code"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:paddingStart="8dp" />
             </LinearLayout>
 
             <!-- Sexto TextView con ícono -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
                 android:orientation="horizontal"
+                android:gravity="center_vertical"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp">
-
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/settings" />
-
                 <TextView
                     android:id="@+id/text_view6"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingStart="8dp"
                     android:text="Settings"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:paddingStart="8dp" />
             </LinearLayout>
 
             <!-- Séptimo TextView con ícono -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
                 android:orientation="horizontal"
+                android:gravity="center_vertical"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp">
-
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/logout" />
-
                 <TextView
                     android:id="@+id/text_view7"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingStart="8dp"
                     android:text="Logout"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:paddingStart="8dp" />
             </LinearLayout>
 
         </LinearLayout>
