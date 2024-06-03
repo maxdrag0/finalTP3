@@ -9,8 +9,6 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
-import android.widget.RadioButton
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -22,9 +20,9 @@ import ar.edu.ort.tp3.finaltp3.R
 import ar.edu.ort.tp3.finaltp3.adapters.OffersAdapter
 import ar.edu.ort.tp3.finaltp3.entities.Offer
 import ar.edu.ort.tp3.finaltp3.ui._activities.MainActivity
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import java.util.Calendar
-
 
 class FragmentSearch : Fragment() {
     private lateinit var offersRecyclerView: RecyclerView
@@ -84,7 +82,7 @@ class FragmentSearch : Fragment() {
             spinnerClass.adapter = adapter
         }
 
-//        PARAMETROS PARA SEARCH RESULTS
+        // PARAMETROS PARA SEARCH RESULTS
         val buttonSearch: Button = view.findViewById(R.id.button_search)
 
         departureLocation = view.findViewById(R.id.departureLocation)
@@ -93,27 +91,23 @@ class FragmentSearch : Fragment() {
         passengers = view.findViewById(R.id.passengers)
         flightClass = view.findViewById(R.id.flightClass)
 
-
-
         buttonSearch.setOnClickListener {
             val departureLocationValue = departureLocation.text.toString()
             val arrivalLocationValue = arrivalLocation.text.toString()
             val departureDateValue = departureDate.text.toString()
-//            val returnDateValue = returnDate.text.toString()
             val passengersValue = passengers.selectedItem.toString()
             val flightClassValue = flightClass.selectedItem.toString()
 
             if (departureLocationValue.isEmpty() || arrivalLocationValue.isEmpty() || departureDateValue.isEmpty()) {
-                // Mostrar mensaje de error o indicar que los campos son obligatorios
-                // Por ejemplo:
                 Toast.makeText(requireContext(), "Por favor completa todos los campos", Toast.LENGTH_SHORT).show()
             } else {
-                val bundle = Bundle()
-                bundle.putString("departureLocation", departureLocationValue)
-                bundle.putString("arrivalLocation", arrivalLocationValue)
-                bundle.putString("departureDate", departureDateValue)
-                bundle.putString("passengers", passengersValue)
-                bundle.putString("flightClass", flightClassValue)
+                val bundle = Bundle().apply {
+                    putString("departureLocation", departureLocationValue)
+                    putString("arrivalLocation", arrivalLocationValue)
+                    putString("departureDate", departureDateValue)
+                    putString("passengers", passengersValue)
+                    putString("flightClass", flightClassValue)
+                }
 
                 findNavController().navigate(R.id.action_search_to_searchResults, bundle)
             }
@@ -122,17 +116,17 @@ class FragmentSearch : Fragment() {
         return view
     }
 
-//    INICIA CON ONE WAY SIEMPRE
+    // INICIA CON ONE WAY SIEMPRE
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         (activity as? AppCompatActivity)?.supportActionBar?.title = "Search Flight"
 
-        val radioButtonOneWay: RadioButton = view.findViewById(R.id.radio_button_one_way)
-        radioButtonOneWay.isChecked = true
+        val buttonOneWay: MaterialButton = view.findViewById(R.id.button_one_way)
+        buttonOneWay.isChecked = true
     }
 
-//    ELECCION DE FECHA
+    // ELECCION DE FECHA
     private fun showDatePickerDialog(editText: EditText) {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
@@ -155,7 +149,7 @@ class FragmentSearch : Fragment() {
         datePickerDialog.show()
     }
 
-//    OBTENER OFERTAS
+    // OBTENER OFERTAS
     private fun getOffers(): List<Offer> {
         return listOf(
             Offer("20% discount", "Mastercard", "Limited time offer!", R.drawable.mastercard_image),

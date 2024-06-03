@@ -5,135 +5,190 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:foregroundTint="#00BCD4"
+    android:background="#f5f5f5"
     tools:context=".ui.explore.FragmentExplore">
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#f5f5f5"
+        app:layout_constraintBottom_toTopOf="@+id/offers_section"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:background="@android:color/white">
 
-<!--FORMULARIO-->
-<!--SELECCION IDA O IDA Y VUELTA-->
-            <RadioGroup
+            <!-- SELECCION IDA O IDA Y VUELTA -->
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/button_toggle_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:orientation="horizontal">
+                app:singleSelection="true">
 
-                <RadioButton
-                    android:id="@+id/radio_button_one_way"
-                    android:layout_width="wrap_content"
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_one_way"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/one_way" />
+                    android:layout_weight="1"
+                    android:text="@string/one_way"
+                    android:textColor="@color/gray"
+                    app:backgroundTint="@color/button_background_selector" />
 
-                <RadioButton
-                    android:id="@+id/radio_button_round_trip"
-                    android:layout_width="wrap_content"
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_round_trip"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/round_trip" />
+                    android:layout_weight="1"
+                    android:text="@string/round_trip"
+                    android:textColor="@color/gray"
+                    app:backgroundTint="@color/button_background_selector" />
 
-            </RadioGroup>
+            </com.google.android.material.button.MaterialButtonToggleGroup>
 
-<!--LUGAR DE SALIDA-->
+            <!-- LUGAR DE SALIDA -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/departureLocationTL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/select_departure">
+                android:hint="@string/select_departure"
+                android:layout_marginTop="16dp"
+                app:startIconDrawable="@drawable/profile"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/gray"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/departureLocation"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-<!--LUGAR DE LLEGADA-->
+            <!-- LUGAR DE LLEGADA -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/arrivalLocationTL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/select_arrival">
+                android:hint="@string/select_arrival"
+                android:layout_marginTop="16dp"
+                app:startIconDrawable="@drawable/profile"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/gray"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/arrivalLocation"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-<!--FECHA DE SALIDA-->
-            <EditText
-                android:id="@+id/departureDate"
+            <!-- FECHA DE SALIDA -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/departureDateTL"
                 android:layout_width="match_parent"
-                android:layout_height="71dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/select_date"
                 android:layout_marginTop="16dp"
-                android:focusable="false"
-                android:hint="@string/departure_date"
-                android:importantForAutofill="no"
-                android:inputType="date" />
+                app:startIconDrawable="@drawable/profile"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/gray"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp">
 
-<!--FECHA DE VUELTA-->
-<!--            <EditText-->
-<!--                android:id="@+id/returnDate"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:hint="@string/departure_date"-->
-<!--                android:focusable="false"-->
-<!--                android:inputType="date"-->
-<!--                android:importantForAutofill="no" />-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/departureDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:importantForAutofill="no"
+                    android:inputType="date" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-<!--PASAJEROS Y CLASE-->
+            <!-- PASAJEROS Y CLASE -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
-                <Spinner
-                    android:id="@+id/passengers"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:startIconDrawable="@drawable/profile">
 
-                <Spinner
-                    android:id="@+id/flightClass"
+                    <Spinner
+                        android:id="@+id/passengers"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    app:startIconDrawable="@drawable/profile">
+                    <Spinner
+                        android:id="@+id/flightClass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
-<!--BOTON SEARCH-->
+            <!-- BOTON SEARCH -->
             <Button
                 android:id="@+id/button_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="@color/yellow"
-                android:text="@string/search" />
-
-<!--            NAVEGACION OFFERS-->
-            <TextView
-                android:id="@+id/offers_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/offers"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_offers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp" />
+                android:backgroundTint="@color/yellow"
+                android:text="@string/search"
+                android:textColor="@android:color/white"/>
 
         </LinearLayout>
     </ScrollView>
+
+    <!-- NAVEGACION OFFERS -->
+    <LinearLayout
+        android:id="@+id/offers_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView">
+
+        <TextView
+            android:id="@+id/offers_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/offers"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_offers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="16dp"/>
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
