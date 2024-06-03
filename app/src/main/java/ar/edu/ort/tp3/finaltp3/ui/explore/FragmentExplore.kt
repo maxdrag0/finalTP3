@@ -52,7 +52,7 @@ class FragmentExplore : Fragment() {
 
         val flightButton: ImageView = view.findViewById(R.id.flight_icon)
         flightButton.setOnClickListener {
-            findNavController().navigate(R.id.fragmentDestinationSearch)
+            findNavController().navigate(R.id.search)
         }
         val parisImage: ImageView = view.findViewById(R.id.parisimage)
         parisImage.setOnClickListener {
