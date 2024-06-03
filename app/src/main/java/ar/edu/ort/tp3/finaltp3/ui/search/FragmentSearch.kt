@@ -110,6 +110,8 @@ class FragmentSearch : Fragment() {
                     putString("baseUrl", "https://d9811bf4-5e67-4a8c-bdcf-603cbbfc0275.mock.pstmn.io/")
                     putString("queryPath", "search?engine=google_flights&api_key=123")
 
+
+
                 }
 
                 findNavController().navigate(R.id.action_search_to_searchResults, bundle)

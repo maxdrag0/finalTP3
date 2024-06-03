@@ -50,16 +50,6 @@ class FragmentSearchResults : Fragment() {
 
         // Prueba de parámetros
 
-        val fecha = view.findViewById<TextView>(R.id.tvDepartureDate)
-        fecha.text = departureDate
-
-        val from = view.findViewById<TextView>(R.id.tvFrom)
-        from.text = departureLocation
-
-        val to = view.findViewById<TextView>(R.id.tvTo)
-        to.text = arrivalLocation
-
-
         if (activity is MainActivity) {
             (activity as MainActivity?)?.esconderToolbar()
         }
@@ -74,6 +64,9 @@ class FragmentSearchResults : Fragment() {
 
         fetchVuelos(baseUrl, queryPath, departureLocation, arrivalLocation, departureDate, returnDate, passengers, flightClass)
         (activity as? AppCompatActivity)?.supportActionBar?.title = ""
+
+        (activity as? AppCompatActivity)?.supportActionBar?.title = "$departureLocation -> $arrivalLocation - $departureDate"
+
         return view
     }
 
@@ -88,7 +81,6 @@ class FragmentSearchResults : Fragment() {
         flightClass: String?
     ) {
         if (baseUrl == null || queryPath == null) {
-            // Manejar el caso en que falten los parámetros
             return
         }
 

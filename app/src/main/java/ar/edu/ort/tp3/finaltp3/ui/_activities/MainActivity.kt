@@ -82,6 +82,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
     fun esconderToolbar() {
         val tool = findViewById<View>(R.id.header_layout)
         if (tool != null) {
