@@ -1,34 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#734222"
-    android:backgroundTint="#734222"
-    android:foregroundTint="#00BCD4"
-    tools:context=".ui.explore.FragmentExplore">
+    tools:context=".ui.profile.FragmentProfile">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/textView"
+    <!-- Imagen de fondo ocupando el 25% de la pantalla -->
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/baros_image" />
+
+
+    <!-- Foto de perfil centrada horizontalmente y ubicada sobre la imagen de fondo -->
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/profileicon"
+        android:padding="8dp"
+        android:translationX="-120dp"
+        android:translationY="-50dp"/>
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-
-        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_below="@id/profile_image">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="75dp"
-        android:layout_height="79dp"
-        android:src="@drawable/profileicon"
-        tools:layout_editor_absoluteX="168dp"
-        tools:layout_editor_absoluteY="261dp" />
+        <!-- Contenedor de los TextViews -->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:translationY="-70dp">
+
+            <!-- Primer TextView -->
+            <TextView
+                android:id="@+id/text_view1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Macy Johnson"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp" />
+
+            <!-- Segundo TextView -->
+            <TextView
+                android:id="@+id/text_view2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Baguio, Philippines"
+                android:textSize="16sp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp" />
+
+            <!-- Tercer TextView -->
+            <TextView
+                android:id="@+id/text_view3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="I like the beach, mountains, forest and everything about nature! :)"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp" />
+
+            <!-- Cuarto TextView con ícono -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/payment" />
+                <TextView
+                    android:id="@+id/text_view4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Payment details"
+                    android:textSize="16sp"
+                    android:paddingStart="8dp" />
+            </LinearLayout>
+
+            <!-- Quinto TextView con ícono -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/account" />
+                <TextView
+                    android:id="@+id/text_view5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Referral code"
+                    android:textSize="16sp"
+                    android:paddingStart="8dp" />
+            </LinearLayout>
+
+            <!-- Sexto TextView con ícono -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/settings" />
+                <TextView
+                    android:id="@+id/text_view6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Settings"
+                    android:textSize="16sp"
+                    android:paddingStart="8dp" />
+            </LinearLayout>
+
+            <!-- Séptimo TextView con ícono -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/logout" />
+                <TextView
+                    android:id="@+id/text_view7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Logout"
+                    android:textSize="16sp"
+                    android:paddingStart="8dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
