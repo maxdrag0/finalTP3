@@ -40,7 +40,20 @@ class FragmentDestinationDetails : Fragment() {
 
 
         if(arrivalAirport == null) {
-            view.findViewById<TextView>(R.id.text_boracay).text = "Boracay"
+            val destinationName = arguments?.getString("destination_name")
+            // Usa destinationName para mostrarlo en tu FragmentDestinationDetails
+            val destinationTextView: TextView = view.findViewById(R.id.text_boracay)
+            destinationTextView.text = destinationName
+
+            val destinationPais1 = arguments?.getString("destination_country")
+            val destinationPais: TextView = view.findViewById(R.id.text_philippines)
+            destinationPais.text = destinationPais1
+
+            val destinationFoto1 = arguments?.getInt("destination_image")
+            val destinationFoto: ImageView = view.findViewById(R.id.background_image)
+            if (destinationFoto1 != null) {
+                destinationFoto.setImageResource(destinationFoto1)
+            }
 
             view.findViewById<TextView>(R.id.text_price).text = "$350"
         }
@@ -48,6 +61,7 @@ class FragmentDestinationDetails : Fragment() {
             view.findViewById<TextView>(R.id.text_boracay).text = arrivalAirport
             view.findViewById<TextView>(R.id.text_philippines).text = arrivalAirportId
             view.findViewById<TextView>(R.id.text_price).text = "$" + price
+
         }
 
 

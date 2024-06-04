@@ -38,8 +38,13 @@ class FragmentExplore : Fragment() {
 
         trendingDestinationsRecyclerView = view.findViewById(R.id.rv_trending_destinations)
         trendingDestinationsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        trendingDestinationsAdapter = TrendingDestinationsAdapter(getTrendingDestinations()){
-            findNavController().navigate(R.id.fragmentDestinationDetails)
+        trendingDestinationsAdapter = TrendingDestinationsAdapter(getTrendingDestinations()) { destinationName ->
+            val bundle = Bundle().apply {
+                putString("destination_name", destinationName.name)
+                putString("destination_country", destinationName.country)
+                putInt("destination_image", destinationName.imageResource)
+            }
+            findNavController().navigate(R.id.fragmentDestinationDetails, bundle)
         }
         trendingDestinationsRecyclerView.adapter = trendingDestinationsAdapter
 
