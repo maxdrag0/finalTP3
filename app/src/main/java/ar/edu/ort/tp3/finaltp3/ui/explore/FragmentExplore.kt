@@ -61,7 +61,12 @@ class FragmentExplore : Fragment() {
         }
         val parisImage: ImageView = view.findViewById(R.id.parisimage)
         parisImage.setOnClickListener {
-            findNavController().navigate(R.id.fragmentDestinationDetails)
+            val bundle = Bundle().apply {
+                putString("destination_name", "Paris")
+                putString("destination_country", "France")
+                putInt("destination_image", R.drawable.parisimage)
+            }
+            findNavController().navigate(R.id.fragmentDestinationDetails, bundle)
         }
 
         return view

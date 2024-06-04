@@ -18,21 +18,28 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+            <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                card_view:cardCornerRadius="16dp"
+                card_view:cardElevation="4dp">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-                <ImageView
-                    android:id="@+id/parisimage"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:contentDescription="Image of Paris"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/parisimage" />
+                    android:layout_height="wrap_content">
 
-            </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/parisimage"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Image"
+                        android:src="@drawable/parisimage" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
 
             <!-- Icono de vuelo -->
             <ImageView

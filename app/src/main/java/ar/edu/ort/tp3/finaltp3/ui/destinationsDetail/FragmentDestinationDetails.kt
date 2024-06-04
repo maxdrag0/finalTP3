@@ -1,5 +1,6 @@
 package ar.edu.ort.tp3.finaltp3.ui.destinationsDetail
 
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +8,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import ar.edu.ort.tp3.finaltp3.R
+import ar.edu.ort.tp3.finaltp3.adapters.FotoAdapter
 import ar.edu.ort.tp3.finaltp3.ui._activities.MainActivity
+import java.util.Arrays
+
 
 class FragmentDestinationDetails : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +33,25 @@ class FragmentDestinationDetails : Fragment() {
             (activity as MainActivity?)?.esconderBottom()
         }
         val view = inflater.inflate(R.layout.fragment_travel_details, container, false)
+
+        val recyclerView: RecyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
+
+
+        // Crear una lista de imágenes
+        val imageList = Arrays.asList<Int>(R.drawable.photo, R.drawable.photo2, R.drawable.photo3)
+
+
+        // Configurar el adaptador
+        val adapter: FotoAdapter? = context?.let { FotoAdapter(it, imageList) }
+
+
+        // Configurar el LayoutManager
+        val layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+
+
+        // Asignar el adaptador y el LayoutManager al RecyclerView
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = layoutManager
 
         val airline = arguments?.getString("airline")
         val duration = arguments?.getString("duration")
