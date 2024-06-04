@@ -68,7 +68,7 @@
                 app:boxStrokeColor="@color/gray"
                 app:startIconDrawable="@drawable/iconupplane">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <AutoCompleteTextView
                     android:id="@+id/departureLocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -89,7 +89,7 @@
                 app:boxStrokeColor="@color/gray"
                 app:startIconDrawable="@drawable/icondownplane">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <AutoCompleteTextView
                     android:id="@+id/arrivalLocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />

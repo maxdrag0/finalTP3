@@ -6,11 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -28,11 +24,39 @@ class FragmentSearch : Fragment() {
     private lateinit var offersRecyclerView: RecyclerView
     private lateinit var offersAdapter: OffersAdapter
 
-    private lateinit var departureLocation: TextInputEditText
-    private lateinit var arrivalLocation: TextInputEditText
+    private lateinit var departureLocation: AutoCompleteTextView
+    private lateinit var arrivalLocation: AutoCompleteTextView
     private lateinit var departureDate: EditText
     private lateinit var passengers: Spinner
     private lateinit var flightClass: Spinner
+
+    private val destinations = listOf(
+        "New York",
+        "Los Angeles",
+        "Chicago",
+        "Houston",
+        "Miami",
+        "París",
+        "Roma",
+        "Londres",
+        "Barcelona",
+        "Bangkok",
+        "Dubai",
+        "Singapur",
+        "Tokio",
+        "Ciudad del Cabo",
+        "Estambul",
+        "Sydney",
+        "Beijing",
+        "Nueva Delhi",
+        "Bali",
+        "Islas Maldivas",
+        "Cancún",
+        "Río de Janeiro",
+        "Las Vegas",
+        "Orlando",
+        "Buenos Aires"
+    )
 
     @SuppressLint("CutPasteId")
     override fun onCreateView(
@@ -84,11 +108,39 @@ class FragmentSearch : Fragment() {
             spinnerClass.adapter = adapter
         }
 
+        // Autocomplete setup for departure location
+        departureLocation = view.findViewById(R.id.departureLocation)
+        val departureAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, destinations)
+        departureLocation.setAdapter(departureAdapter)
+
+        departureLocation.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                val input = departureLocation.text.toString()
+                if (!destinations.contains(input)) {
+                    departureLocation.error = "Lugar no es correcto"
+                }
+            }
+        }
+
+        // Autocomplete setup for arrival location
+        arrivalLocation = view.findViewById(R.id.arrivalLocation)
+        val arrivalAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, destinations)
+        arrivalLocation.setAdapter(arrivalAdapter)
+
+        arrivalLocation.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                val input = arrivalLocation.text.toString()
+                if (!destinations.contains(input)) {
+                    arrivalLocation.error = "Lugar no es correcto"
+                } else if (input == departureLocation.text.toString()) {
+                    arrivalLocation.error = "Arrival location cannot be the same as departure location"
+                }
+            }
+        }
+
         // PARAMETROS PARA SEARCH RESULTS
         val buttonSearch: Button = view.findViewById(R.id.button_search)
 
-        departureLocation = view.findViewById(R.id.departureLocation)
-        arrivalLocation = view.findViewById(R.id.arrivalLocation)
         departureDate = view.findViewById(R.id.departureDate)
         passengers = view.findViewById(R.id.passengers)
         flightClass = view.findViewById(R.id.flightClass)
@@ -101,8 +153,14 @@ class FragmentSearch : Fragment() {
             val flightClassValue = flightClass.selectedItem.toString()
 
             if (departureLocationValue.isEmpty() || arrivalLocationValue.isEmpty() || departureDateValue.isEmpty()) {
-                Toast.makeText(requireContext(), "Por favor completa todos los campos", Toast.LENGTH_SHORT).show()
-            } else {
+                Toast.makeText(requireContext(), "Please complete all fields", Toast.LENGTH_SHORT).show()
+            } else if (!destinations.contains(departureLocationValue) ||
+                !destinations.contains(arrivalLocationValue)) {
+                Toast.makeText(requireContext(), "Departure or Arrival incorrect", Toast.LENGTH_SHORT).show()
+            } else if (departureLocation.text.toString() == arrivalLocation.text.toString()) {
+                Toast.makeText(requireContext(), "Departure and arrival cannot be the same", Toast.LENGTH_SHORT).show()
+            }
+            else {
                 val bundle = Bundle().apply {
                     putString("departureLocation", departureLocationValue)
                     putString("arrivalLocation", arrivalLocationValue)
@@ -111,9 +169,6 @@ class FragmentSearch : Fragment() {
                     putString("flightClass", flightClassValue)
                     putString("baseUrl", "https://d9811bf4-5e67-4a8c-bdcf-603cbbfc0275.mock.pstmn.io/")
                     putString("queryPath", "search?engine=google_flights&api_key=123")
-
-
-
                 }
 
                 findNavController().navigate(R.id.action_search_to_searchResults, bundle)
@@ -164,3 +219,4 @@ class FragmentSearch : Fragment() {
         )
     }
 }
+
