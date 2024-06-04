@@ -7,6 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+
+
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,30 +30,23 @@ class FragmentDestinationDetails : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as? AppCompatActivity)?.supportActionBar?.subtitle = ""
+        (activity as? AppCompatActivity)?.supportActionBar?.title = ""
+
         if (activity is MainActivity) {
             (activity as MainActivity?)?.esconderToolbar()
         }
         if (activity is MainActivity) {
             (activity as MainActivity?)?.esconderBottom()
         }
-        val view = inflater.inflate(R.layout.fragment_travel_details, container, false)
+
+
+    val view = inflater.inflate(R.layout.fragment_travel_details, container, false)
 
         val recyclerView: RecyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
-
-
-        // Crear una lista de imágenes
         val imageList = Arrays.asList<Int>(R.drawable.photo, R.drawable.photo2, R.drawable.photo3)
-
-
-        // Configurar el adaptador
         val adapter: FotoAdapter? = context?.let { FotoAdapter(it, imageList) }
-
-
-        // Configurar el LayoutManager
         val layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-
-
-        // Asignar el adaptador y el LayoutManager al RecyclerView
         recyclerView.adapter = adapter
         recyclerView.layoutManager = layoutManager
 

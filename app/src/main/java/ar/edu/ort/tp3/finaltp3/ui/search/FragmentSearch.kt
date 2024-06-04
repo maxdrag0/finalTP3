@@ -39,6 +39,8 @@ class FragmentSearch : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as? AppCompatActivity)?.supportActionBar?.subtitle = ""
+
         if (activity is MainActivity) {
             (activity as MainActivity?)?.esconderToolbar()
         }

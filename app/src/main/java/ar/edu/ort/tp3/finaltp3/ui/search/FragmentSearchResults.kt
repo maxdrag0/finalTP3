@@ -65,7 +65,8 @@ class FragmentSearchResults : Fragment() {
         fetchVuelos(baseUrl, queryPath, departureLocation, arrivalLocation, departureDate, returnDate, passengers, flightClass)
         (activity as? AppCompatActivity)?.supportActionBar?.title = ""
 
-        (activity as? AppCompatActivity)?.supportActionBar?.title = "$departureLocation -> $arrivalLocation - $departureDate"
+        (activity as? AppCompatActivity)?.supportActionBar?.title = "$departureLocation -> $arrivalLocation"
+        (activity as? AppCompatActivity)?.supportActionBar?.subtitle = "$departureDate"
 
         return view
     }

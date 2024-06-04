@@ -6,90 +6,127 @@
     android:layout_height="match_parent"
     tools:context=".ui.profile.FragmentProfile">
 
+
+    <!-- ImageView for the background image -->
     <ImageView
         android:id="@+id/background_image"
         android:layout_width="match_parent"
-        android:layout_height="168dp"
+        android:layout_height="180dp"
         android:layout_alignParentTop="true"
         android:scaleType="centerCrop"
         android:src="@drawable/baros_image" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+    <!-- CardView with rounded corners -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="395dp"
+        android:layout_height="544dp"
         android:layout_below="@id/background_image"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true">
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="-20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp">
 
-        <!-- Texto "Boracay" -->
-        <TextView
-            android:id="@+id/text_boracay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Boracay"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:paddingEnd="8dp" />
+        <RelativeLayout
+            android:layout_width="393dp"
+            android:layout_height="561dp"
+            android:padding="16dp">
 
-        <TextView
-            android:id="@+id/text_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="$349"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginStart="260dp" />
+            <LinearLayout
+                android:id="@+id/text_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/text_philippines"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Philippines"
-            android:textSize="16sp"
-            android:textColor="#808080" />
+                <!-- Texto "Boracay" y "$349" en una fila horizontal -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/text_overview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Overview"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp" />
+                    <TextView
+                        android:id="@+id/text_boracay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="20dp"
+                        android:text="Boracay"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/text_paragraph"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Spend 5 days and 4 nights in one of the best islands in the world! Bask in the sun while walking in the white sand beach and enjoy the night partying at the popular seaside bars."
-            android:textSize="16sp"
-            android:layout_marginTop="8dp" />
 
-        <TextView
-            android:id="@+id/text_photo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Photo"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/from"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FROM  "
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp" />
+                <TextView
+                    android:id="@+id/text_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$349"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+                <TextView
+                    android:id="@+id/text_philippines"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Philippines"
+                    android:textColor="#808080"
+                    android:textSize="16sp" />
 
-        <Button
-            android:id="@+id/viewDetailsButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:backgroundTint="@color/yellow"
-            android:text="View Details"
-            />
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/text_overview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Overview"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/text_paragraph"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Spend 5 days and 4 nights in one of the best islands in the world! Bask in the sun while walking in the white sand beach and enjoy the night partying at the popular seaside bars."
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/text_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Photos"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp" />
+
+                <Button
+                    android:id="@+id/viewDetailsButton"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/yellow"
+                    android:text="View Details" />
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

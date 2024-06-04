@@ -23,6 +23,8 @@ class FragmentOffers : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as? AppCompatActivity)?.supportActionBar?.subtitle = ""
+
         if (activity is MainActivity) {
             (activity as MainActivity?)?.esconderToolbar()
         }
@@ -37,8 +39,8 @@ class FragmentOffers : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.rv_offers)
         offersList = listOf(
-            Offer("20% discount", "Mastercard", "Limited time offer!", R.drawable.mastercard_image),
-            Offer("25% discount", "Visa", "Limited time offer!", R.drawable.visa_image)
+            Offer("20% discount", "20% discount for mastercard users", "Limited time offer!", R.drawable.mastercard_image),
+            Offer("25% discount", "25% discount with your Visa credit cards", "Limited time offer!", R.drawable.visa_image)
         )
         offersAdapter = OffersAdapter(offersList) { offer ->
         }
