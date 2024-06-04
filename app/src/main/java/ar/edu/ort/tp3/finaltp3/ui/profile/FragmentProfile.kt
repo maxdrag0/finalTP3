@@ -22,6 +22,8 @@ class FragmentProfile : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as? AppCompatActivity)?.supportActionBar?.subtitle = ""
+        (activity as? AppCompatActivity)?.supportActionBar?.title = ""
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 

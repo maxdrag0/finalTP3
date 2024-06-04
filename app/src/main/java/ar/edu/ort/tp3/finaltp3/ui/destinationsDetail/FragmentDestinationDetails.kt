@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 
@@ -41,8 +42,19 @@ class FragmentDestinationDetails : Fragment() {
         }
 
 
-    val view = inflater.inflate(R.layout.fragment_travel_details, container, false)
+        val view = inflater.inflate(R.layout.fragment_travel_details, container, false)
 
+        val heartButton: ImageView? = view.findViewById<ImageView>(R.id.heart_button)
+        var isFavorite = false
+
+        heartButton?.setOnClickListener {
+            if (isFavorite) {
+                heartButton.setImageResource(R.drawable.img_6) // Imagen de corazón no favorito
+            } else {
+                heartButton.setImageResource(R.drawable.img_5) // Imagen de corazón favorito
+            }
+            isFavorite = !isFavorite
+        }
         val recyclerView: RecyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
         val imageList = Arrays.asList<Int>(R.drawable.photo, R.drawable.photo2, R.drawable.photo3)
         val adapter: FotoAdapter? = context?.let { FotoAdapter(it, imageList) }

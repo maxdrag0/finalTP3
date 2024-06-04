@@ -29,6 +29,7 @@ class FragmentExplore : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         (activity as? AppCompatActivity)?.supportActionBar?.subtitle = ""
+        (activity as? AppCompatActivity)?.supportActionBar?.title = ""
         if (activity is MainActivity) {
             (activity as MainActivity?)?.mostrarToolbar()
         }
@@ -69,6 +70,7 @@ class FragmentExplore : Fragment() {
             }
             findNavController().navigate(R.id.fragmentDestinationDetails, bundle)
         }
+        (activity as? AppCompatActivity)?.supportActionBar?.subtitle = ""
 
         return view
     }
@@ -76,7 +78,7 @@ class FragmentExplore : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Establecer el título de la actividad en una cadena vacía
-        (activity as? AppCompatActivity)?.supportActionBar?.title = ""
+
     }
     private fun getTrendingDestinations(): List<Destination> {
         return listOf(

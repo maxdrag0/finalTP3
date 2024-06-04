@@ -64,15 +64,8 @@ class FragmentSearchResults : Fragment() {
 
         fetchVuelos(baseUrl, queryPath, departureLocation, arrivalLocation, departureDate, returnDate, passengers, flightClass)
 
-        val customView = LayoutInflater.from(activity).inflate(R.layout.custom_action_bar_title, null)
-        customView.findViewById<TextView>(R.id.action_bar_title).text = "$departureLocation -> $arrivalLocation"
-        customView.findViewById<TextView>(R.id.action_bar_subtitle).text = departureDate
-
-        (activity as? AppCompatActivity)?.supportActionBar?.apply {
-            setDisplayShowCustomEnabled(true)
-            setDisplayShowTitleEnabled(false)
-            setCustomView(customView)
-        }
+        (activity as? AppCompatActivity)?.supportActionBar?.subtitle = departureDate
+        (activity as? AppCompatActivity)?.supportActionBar?.title = "$departureLocation - $arrivalLocation"
 
         return view
     }

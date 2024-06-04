@@ -64,7 +64,7 @@ class FragmentSearch : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         (activity as? AppCompatActivity)?.supportActionBar?.subtitle = ""
-
+        (activity as? AppCompatActivity)?.supportActionBar?.title = "Search Flight"
         if (activity is MainActivity) {
             (activity as MainActivity?)?.esconderToolbar()
         }
